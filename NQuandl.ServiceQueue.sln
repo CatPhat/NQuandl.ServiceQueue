@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NQuandl.ServiceQueue", "NQuandl.ServiceQueue\NQuandl.ServiceQueue.csproj", "{16B30B8E-D094-477E-82C3-6C8D36C7B644}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NQuandl.Tests", "NQuandl.Tests\NQuandl.Tests.csproj", "{95E3DAF6-3059-4238-AD60-2BF9A0B38297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NQuandl.QConsole", "NQuandl.QConsole\NQuandl.QConsole.csproj", "{90FB1ECA-DD29-4361-8F62-753328FF177F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{16B30B8E-D094-477E-82C3-6C8D36C7B644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B30B8E-D094-477E-82C3-6C8D36C7B644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B30B8E-D094-477E-82C3-6C8D36C7B644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E3DAF6-3059-4238-AD60-2BF9A0B38297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E3DAF6-3059-4238-AD60-2BF9A0B38297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E3DAF6-3059-4238-AD60-2BF9A0B38297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E3DAF6-3059-4238-AD60-2BF9A0B38297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FB1ECA-DD29-4361-8F62-753328FF177F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FB1ECA-DD29-4361-8F62-753328FF177F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FB1ECA-DD29-4361-8F62-753328FF177F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FB1ECA-DD29-4361-8F62-753328FF177F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

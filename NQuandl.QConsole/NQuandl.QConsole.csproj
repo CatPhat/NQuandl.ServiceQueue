@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{16B30B8E-D094-477E-82C3-6C8D36C7B644}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{90FB1ECA-DD29-4361-8F62-753328FF177F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NQuandl.ServiceQueue</RootNamespace>
-    <AssemblyName>NQuandl.ServiceQueue</AssemblyName>
+    <RootNamespace>NQuandl.QConsole</RootNamespace>
+    <AssemblyName>NQuandl.QConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -29,22 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NQuandl.Client">
-      <HintPath>..\..\NQuandl\nquandl.client\bin\Debug\NQuandl.Client.dll</HintPath>
-    </Reference>
     <Reference Include="Rebus">
       <HintPath>..\..\Rebus\src\Rebus\bin\Debug\Rebus.dll</HintPath>
-    </Reference>
-    <Reference Include="Rebus.Timeout">
-      <HintPath>..\..\Rebus\src\Rebus.Timeout\bin\Debug\Rebus.Timeout.exe</HintPath>
-    </Reference>
-    <Reference Include="SimpleInjector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.2.8.0\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,23 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompositionRoot\Rebus\AmbientUserContext.cs" />
-    <Compile Include="CompositionRoot\Rebus\DetermineQueueOwnership.cs" />
-    <Compile Include="CompositionRoot\Rebus\RebusEx.cs" />
-    <Compile Include="CompositionRoot\Rebus\SimpleInjectorAdapter.cs" />
-    <Compile Include="CompositionRoot\CompositionRoot.cs" />
-    <Compile Include="CompositionRoot\Rebus\CompositionRoot.cs" />
-    <Compile Include="CompositionRoot\Rebus\RebusFactory.cs" />
-    <Compile Include="CompositionRoot\Rebus\UserContext.cs" />
-    <Compile Include="CompositionRoot\SimpleDependencyInjector.cs" />
-    <Compile Include="Handlers\QuandlQueryHandler.cs" />
-    <Compile Include="Messages\QuandlQuery.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NQuandl.ServiceQueue\NQuandl.ServiceQueue.csproj">
+      <Project>{16b30b8e-d094-477e-82c3-6c8d36c7b644}</Project>
+      <Name>NQuandl.ServiceQueue</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
