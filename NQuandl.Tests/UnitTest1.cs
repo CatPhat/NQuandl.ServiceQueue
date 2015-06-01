@@ -16,7 +16,7 @@ namespace NQuandl.Tests
         {
             var rebusFactory = new RebusFactory(new SimpleDependencyInjector());
             var bus = rebusFactory.GetBus();
-            var message = new QuandlQuery
+            var message = new QuandlQueryRequest
             {
                 PathSegment = "test"
             };

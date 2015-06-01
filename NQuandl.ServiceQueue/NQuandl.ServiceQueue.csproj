@@ -39,11 +39,18 @@
     <Reference Include="Rebus">
       <HintPath>..\..\Rebus\src\Rebus\bin\Debug\Rebus.dll</HintPath>
     </Reference>
+    <Reference Include="Rebus.SimpleInjector">
+      <HintPath>..\..\Rebus\src\Rebus.SimpleInjector\bin\Debug\Rebus.SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="Rebus.Timeout">
       <HintPath>..\..\Rebus\src\Rebus.Timeout\bin\Debug\Rebus.Timeout.exe</HintPath>
     </Reference>
     <Reference Include="SimpleInjector, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.2.8.0\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.LifetimeScoping, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.LifetimeScoping.2.8.0\lib\net40-client\SimpleInjector.Extensions.LifetimeScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -65,11 +72,15 @@
     <Compile Include="CompositionRoot\Rebus\RebusFactory.cs" />
     <Compile Include="CompositionRoot\Rebus\UserContext.cs" />
     <Compile Include="CompositionRoot\SimpleDependencyInjector.cs" />
-    <Compile Include="Handlers\QuandlQueryHandler.cs" />
-    <Compile Include="Messages\QuandlQuery.cs" />
+    <Compile Include="Handlers\QuandlQueryRequestHandler.cs" />
+    <Compile Include="Handlers\QuandlQueryResponseHandler.cs" />
+    <Compile Include="Handlers\QuandlQueueRequests\QueueStringRequest.cs" />
+    <Compile Include="Messages\QuandlQueryRequest.cs" />
+    <Compile Include="Messages\QuandlQueryReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
