@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NQuandl.Client">
+      <HintPath>..\..\NQuandl\nquandl.client\bin\Debug\NQuandl.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Rebus">
       <HintPath>..\..\Rebus\src\Rebus\bin\Debug\Rebus.dll</HintPath>
     </Reference>

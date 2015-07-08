@@ -63,18 +63,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompositionRoot\Rebus\AmbientUserContext.cs" />
     <Compile Include="CompositionRoot\Rebus\DetermineQueueOwnership.cs" />
-    <Compile Include="CompositionRoot\Rebus\RebusEx.cs" />
-    <Compile Include="CompositionRoot\Rebus\SimpleInjectorAdapter.cs" />
     <Compile Include="CompositionRoot\CompositionRoot.cs" />
     <Compile Include="CompositionRoot\Rebus\CompositionRoot.cs" />
     <Compile Include="CompositionRoot\Rebus\RebusFactory.cs" />
-    <Compile Include="CompositionRoot\Rebus\UserContext.cs" />
     <Compile Include="CompositionRoot\SimpleDependencyInjector.cs" />
     <Compile Include="Handlers\QuandlQueryRequestHandler.cs" />
     <Compile Include="Handlers\QuandlQueryResponseHandler.cs" />
-    <Compile Include="Handlers\QuandlQueueRequests\QueueStringRequest.cs" />
     <Compile Include="Messages\QuandlQueryRequest.cs" />
     <Compile Include="Messages\QuandlQueryReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,7 +78,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Handlers\QuandlQueueRequests\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

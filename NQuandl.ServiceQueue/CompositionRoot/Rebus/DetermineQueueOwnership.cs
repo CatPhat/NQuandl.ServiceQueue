@@ -8,7 +8,7 @@ namespace NQuandl.ServiceQueue.CompositionRoot.Rebus
     {
         public string GetEndpointFor(Type messageType)
         {
-            if (messageType == typeof (QuandlQueryRequest))
+            if (messageType == typeof (QuandlQueryRequest<>))
             {
                 return "my-app.input";
             }

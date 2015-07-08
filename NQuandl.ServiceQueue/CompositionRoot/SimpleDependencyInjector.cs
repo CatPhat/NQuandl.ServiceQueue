@@ -10,6 +10,7 @@ namespace NQuandl.ServiceQueue.CompositionRoot
         public SimpleDependencyInjector()
         {
             Container = new Container();
+            
             Rebus.CompositionRoot.ConfigureBus(Container);
             Container.ComposeRoot();
             Container.Verify();

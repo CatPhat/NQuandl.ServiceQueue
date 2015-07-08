@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using NQuandl.Client.Interfaces;
+﻿using System;
+using NQuandl.Client.Api;
+using NQuandl.Client.Domain.RequestParameters;
 
 namespace NQuandl.ServiceQueue.Messages
 {
-    public class QuandlQueryRequest
+    public class QuandlQueryRequest<TEntity> where TEntity : QuandlEntity
     {
-        public IQuandlRequest Request { get; set; }
+        public RequestParametersV1 RequestParameters { get; set; }
     }
 }
