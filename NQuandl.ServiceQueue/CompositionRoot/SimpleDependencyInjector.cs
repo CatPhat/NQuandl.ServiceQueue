@@ -1,4 +1,5 @@
 ﻿using System;
+using Hangfire;
 using SimpleInjector;
 
 namespace NQuandl.ServiceQueue.CompositionRoot
@@ -10,8 +11,11 @@ namespace NQuandl.ServiceQueue.CompositionRoot
         public SimpleDependencyInjector()
         {
             Container = new Container();
-            
-            Rebus.CompositionRoot.ConfigureBus(Container);
+
+            GlobalConfiguration.Configuration.UseSqlServerStorage(
+                @"server=SHIVA9.;initial catalog=RebusInputQueue;integrated security=sspi");
+       
+            //Rebus.CompositionRoot.ConfigureBus(Container);
             Container.ComposeRoot();
             Container.Verify();
         }
