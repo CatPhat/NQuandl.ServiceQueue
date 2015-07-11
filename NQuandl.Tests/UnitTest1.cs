@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NQuandl.ServiceQueue.CompositionRoot;
-using NQuandl.ServiceQueue.CompositionRoot.Rebus;
-using NQuandl.ServiceQueue.Messages;
-using Rebus;
 
 namespace NQuandl.Tests
 {

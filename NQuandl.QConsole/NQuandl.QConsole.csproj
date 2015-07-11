@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,8 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckFiles.cs" />
+    <Compile Include="Commands\SetLastProcessedJobInfo.cs" />
+    <Compile Include="GetV1.cs" />
+    <Compile Include="GetV2.cs" />
+    <Compile Include="GetV2Parameters.cs" />
+    <Compile Include="JobEvent.cs" />
+    <Compile Include="JobMonitor.cs" />
+    <Compile Include="Jobs\JobInfo.cs" />
+    <Compile Include="Jobs\JobInfoQueue.cs" />
+    <Compile Include="Jobs\ManageRequestJobs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,6 +72,10 @@
       <Project>{16b30b8e-d094-477e-82c3-6c8d36c7b644}</Project>
       <Name>NQuandl.ServiceQueue</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

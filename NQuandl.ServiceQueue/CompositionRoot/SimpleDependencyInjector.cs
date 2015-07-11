@@ -1,5 +1,6 @@
 ﻿using System;
 using Hangfire;
+using Hangfire.Redis.StackExchange;
 using SimpleInjector;
 
 namespace NQuandl.ServiceQueue.CompositionRoot
@@ -12,8 +13,9 @@ namespace NQuandl.ServiceQueue.CompositionRoot
         {
             Container = new Container();
 
-            GlobalConfiguration.Configuration.UseSqlServerStorage(
+            GlobalConfiguration.Configuration.UseRedisStorage(
                 @"server=SHIVA9.;initial catalog=RebusInputQueue;integrated security=sspi");
+      
        
             //Rebus.CompositionRoot.ConfigureBus(Container);
             Container.ComposeRoot();
