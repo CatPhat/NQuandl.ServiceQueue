@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Hangfire;
 using Microsoft.Owin.Hosting;
 using NQuandl.Client.Api;
@@ -30,23 +31,24 @@ namespace NQuandl.ServiceQueue
                 {
                     if ("job".Equals(command, StringComparison.OrdinalIgnoreCase))
                     {
-                        for (int i = 1; i <= 100; i++)
+                        var requestCount = 1;
+                        for (int i = 1; i <= 6752; i++)
                         {
                             var requestParameters = new RequestParametersV2
                             {
-                                ApiKey = "XXXX",
+                                ApiKey = "71RqY1iB-mPYtst-k4vV",
                                 Query = "*",
                                 SourceCode = "UN",
                                 PerPage = 300,
                                 Page = i
                             };
+                            var fileName = requestParameters.SourceCode + "_" + requestParameters.Page + ".json";
+                            var fullPath = Path.Combine(@"A:\DEVOPS\QUANDL-DATASETS", fileName);
 
-                            //var lastRequestTime = requestStartTime;
-                            //requestStartTime = DateTime.Now;
-                            //var millisecondsLapsed = (requestStartTime - lastRequestTime).TotalMilliseconds;
-                            //Console.WriteLine("Request Started: {0}", i);
-                            //Console.WriteLine("Milliseconds from last request: {0}", millisecondsLapsed);
-                            BackgroundJob.Schedule( () => new GetV2().GetJsonResponseV2(requestParameters), TimeSpan.FromMilliseconds(300 * i));
+                            if(File.Exists(fullPath)) continue;
+                            
+                            BackgroundJob.Schedule(() => new GetV2().GetJsonResponseV2(requestParameters, fullPath), TimeSpan.FromMilliseconds(10 * requestCount));
+                            requestCount = requestCount + 1;
 
                         }
                     }

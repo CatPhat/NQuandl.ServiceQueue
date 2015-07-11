@@ -21,7 +21,7 @@ namespace NQuandl.ServiceQueue
             var options = new BackgroundJobServerOptions
             {
                 SchedulePollingInterval = TimeSpan.FromMilliseconds(1),
-                WorkerCount = Environment.ProcessorCount * 10
+                WorkerCount = 1000
             };
             app.UseErrorPage();
             app.UseWelcomePage("/");
