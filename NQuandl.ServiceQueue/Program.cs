@@ -2,11 +2,7 @@
 using System.IO;
 using Hangfire;
 using Microsoft.Owin.Hosting;
-using NQuandl.Client.Api;
-using NQuandl.Client.Domain.Queries;
 using NQuandl.Client.Domain.RequestParameters;
-using NQuandl.ServiceQueue.CompositionRoot;
-using SimpleInjector;
 
 namespace NQuandl.ServiceQueue
 {
@@ -15,7 +11,7 @@ namespace NQuandl.ServiceQueue
         private static void Main(string[] args)
         {
             const string endpoint = "http://localhost:12345";
-          
+
             using (WebApp.Start<Startup>(endpoint))
             {
                 Console.WriteLine();
@@ -45,11 +41,11 @@ namespace NQuandl.ServiceQueue
                             var fileName = requestParameters.SourceCode + "_" + requestParameters.Page + ".json";
                             var fullPath = Path.Combine(@"A:\DEVOPS\QUANDL-DATASETS", fileName);
 
-                            if(File.Exists(fullPath)) continue;
-                            
-                            BackgroundJob.Schedule(() => new GetV2().GetJsonResponseV2(requestParameters, fullPath), TimeSpan.FromMilliseconds(10 * requestCount));
-                            requestCount = requestCount + 1;
+                            if (File.Exists(fullPath)) continue;
 
+                            BackgroundJob.Schedule(() => new GetV2().GetJsonResponseV2(requestParameters, fullPath),
+                                TimeSpan.FromMilliseconds(300*requestCount));
+                            requestCount = requestCount + 1;
                         }
                     }
                 }

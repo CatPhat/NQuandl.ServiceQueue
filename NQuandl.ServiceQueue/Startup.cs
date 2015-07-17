@@ -1,6 +1,7 @@
 ﻿using System;
 using Hangfire;
 using Hangfire.Dashboard;
+using Hangfire.MemoryStorage;
 using Hangfire.Redis.StackExchange;
 using Microsoft.Owin;
 using NQuandl.ServiceQueue;
@@ -14,10 +15,13 @@ namespace NQuandl.ServiceQueue
     {
         public void Configuration(IAppBuilder app)
         {
-        
-            
-            GlobalConfiguration.Configuration.UseRedisStorage("192.168.1.28:6379")
-                .UseDashboardMetric(DashboardMetrics.ProcessingCount);
+
+
+            GlobalConfiguration.Configuration
+                //.UseRedisStorage("192.168.1.28:6379")
+                .UseDashboardMetric(DashboardMetrics.ProcessingCount)
+                .UseMemoryStorage();
+              
             var options = new BackgroundJobServerOptions
             {
                 SchedulePollingInterval = TimeSpan.FromMilliseconds(1),

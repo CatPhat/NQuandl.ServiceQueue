@@ -13,7 +13,7 @@ namespace NQuandl.ServiceQueue.CompositionRoot
         public static void ComposeRoot(this Container container)
         {
             container.Register<IServiceProvider>(() => container, Lifestyle.Singleton);
-            container.Register<IRateGate>(() => new RateGate(100, TimeSpan.FromMilliseconds(300)), Lifestyle.Singleton);
+            container.Register<IRateGate>(() => new RateGate(1, TimeSpan.FromMilliseconds(300)), Lifestyle.Singleton);
             string url = @"https://quandl.com/api";
 #if DEBUG
             url = @"http://localhost:49832/api";
